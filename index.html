@@ -13,21 +13,28 @@
         align-items: center;
         height: 100vh;
       }
+      div#info,
+      div#settings,
+      div#target {
+        width: 30vw;
+        height: 30vh;
+      }
       @media (max-width: 600px) {
         body {
           flex-direction: column;
         }
-      }
-      div#target {
-        width: 30vw;
-        height: 30vh;
-        background-color: violet;
+        div#info,
+        div#settings,
+        div#target {
+          width: 50vw;
+        }
       }
       div#info,
       div#settings {
-        width: 30vw;
-        height: 30vh;
         overflow-y: scroll;
+      }
+      div#target {
+        background-color: violet;
       }
       div#info p {
         margin: 0;
