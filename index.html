@@ -37,11 +37,15 @@
       }
       div#info,
       div#settings {
-        box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+        box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.5);
         overflow-y: scroll;
       }
       div#target {
         background-color: violet;
+      }
+      div#info {
+        padding: 4px;
+        box-sizing: border-box;
       }
       div#info p {
         margin: 0;
@@ -78,10 +82,15 @@
         "dragend",
         "dragstart",
         "mousedown",
+        "mousemove",
         "mouseup",
         "pointerdown",
+        "pointerleave",
+        "pointermove",
+        "pointerout",
         "pointerup",
         "touchend",
+        "touchmove",
         "touchstart",
       ];
 
