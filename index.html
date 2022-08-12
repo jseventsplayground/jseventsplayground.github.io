@@ -16,7 +16,7 @@
       }
       div#info,
       div#settings,
-      a#target {
+      textarea#target {
         width: 30vw;
         height: 26vh;
       }
@@ -31,7 +31,7 @@
         }
         div#info,
         div#settings,
-        a#target {
+        textarea#target {
           width: 50vw;
           height: 24vh;
         }
@@ -43,14 +43,15 @@
         padding: 4px;
         box-sizing: border-box;
       }
-      a#target {
+      textarea#target {
         background-color: violet;
-        color: white;
         display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
         text-decoration: none;
+      }
+      textarea#target,
+      textarea#target::placeholder {
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
       }
       div#info p {
         margin: 0;
@@ -58,7 +59,8 @@
       input[type="checkbox"] {
         margin: 8px;
       }
-      h2 {
+      h2,
+      textarea {
         font-size: 1.5em;
         line-height: 1.25em;
         margin: 0;
@@ -72,9 +74,12 @@
       <div class="context"></div>
     </div>
     <div>
-      <a id="target" draggable="true" href="#" autofocus
-        ><h2>click, drag, etc.</h2></a
-      >
+      <textarea
+        id="target"
+        draggable="true"
+        placeholder="Click, drag, type, etc.."
+        autofocus
+      ></textarea>
       <div class="context">
         <a
           href="https://github.com/jseventsplayground/jseventsplayground.github.io"
@@ -90,14 +95,20 @@
     </div>
     <script>
       const eventTypes = [
+        "beforeinput",
         "blur",
+        "change",
         "click",
+        "copy",
+        "cut",
         "drag",
         "dragend",
         "dragstart",
         "focus",
         "focusin",
         "focusout",
+        "input",
+        "paste",
         "mousedown",
         "mousemove",
         "mouseup",
