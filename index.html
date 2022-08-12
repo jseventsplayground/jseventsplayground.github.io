@@ -16,7 +16,7 @@
       }
       div#info,
       div#settings,
-      div#target {
+      a#target {
         width: 30vw;
         height: 26vh;
       }
@@ -31,7 +31,7 @@
         }
         div#info,
         div#settings,
-        div#target {
+        a#target {
           width: 50vw;
           height: 24vh;
         }
@@ -43,13 +43,14 @@
         padding: 4px;
         box-sizing: border-box;
       }
-      div#target {
+      a#target {
         background-color: violet;
         color: white;
         display: flex;
         justify-content: center;
         align-items: center;
         text-align: center;
+        text-decoration: none;
       }
       div#info p {
         margin: 0;
@@ -71,7 +72,9 @@
       <div class="context"></div>
     </div>
     <div>
-      <div id="target" draggable="true"><h2>CLICK, DRAG, ETC.</h2></div>
+      <a id="target" draggable="true" href="#" autofocus
+        ><h2>click, drag, etc.</h2></a
+      >
       <div class="context">
         <a
           href="https://github.com/jseventsplayground/jseventsplayground.github.io"
@@ -87,10 +90,14 @@
     </div>
     <script>
       const eventTypes = [
+        "blur",
         "click",
         "drag",
         "dragend",
         "dragstart",
+        "focus",
+        "focusin",
+        "focusout",
         "mousedown",
         "mousemove",
         "mouseup",
@@ -137,7 +144,9 @@
 
       eventTypes.forEach((eventType, i) => {
         const checkBox = createCheckBox(eventType);
-        checkBox.checked = i === 0;
+        checkBox.checked =
+          i === eventTypes.indexOf("click") ||
+          i === eventTypes.indexOf("focus");
         target.addEventListener(eventType, (event) => {
           if (checkBox.checked) {
             log(event);
